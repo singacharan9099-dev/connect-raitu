@@ -97,9 +97,9 @@ export default function ProductsAdminPage() {
             setShowAddForm(false);
             setEditingProduct(null);
             fetchProducts();
-        } catch (error) {
+        } catch (error: any) {
             console.error("Error saving product:", error);
-            alert("Failed to save product. Please try again.");
+            alert(`Failed to save product: ${error.message || JSON.stringify(error)}`);
         } finally {
             setLoading(false);
         }
