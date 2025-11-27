@@ -14,7 +14,7 @@ We are excited to announce that **Connect Raitu** is now available online. You c
 ✅ Use AI Plant Doctor for crop diseases
 ✅ Get Smart Crop Planning advice
 
-**Shop Now:** [Insert Your Vercel URL Here]
+**Shop Now:** https://connect-raitu.vercel.app
 
 Available in English, Telugu, and Hindi!
 
@@ -30,7 +30,7 @@ Available in English, Telugu, and Hindi!
 ✅ పంట తెగుళ్ళ కోసం AI ప్లాంట్ డాక్టర్‌ని వాడవచ్చు
 ✅ స్మార్ట్ పంట ప్రణాళిక సలహాలు పొందవచ్చు
 
-**ఇప్పుడే షాపింగ్ చేయండి:** [Insert Your Vercel URL Here]
+**ఇప్పుడే షాపింగ్ చేయండి:** https://connect-raitu.vercel.app
 
 తెలుగు, హిందీ మరియు ఇంగ్లీష్ భాషలలో లభిస్తుంది!
 
@@ -46,6 +46,6 @@ Available in English, Telugu, and Hindi!
 ✅ फसल रोगों के लिए AI प्लांट डॉक्टर का उपयोग कर सकते हैं
 ✅ स्मार्ट फसल नियोजन सलाह प्राप्त कर सकते हैं
 
-**अभी खरीदारी करें:** [Insert Your Vercel URL Here]
+**अभी खरीदारी करें:** https://connect-raitu.vercel.app
 
 हिंदी, तेलुगु और अंग्रेजी में उपलब्ध!

@@ -14,7 +14,7 @@
 4. Click **URL Configuration**
 
 ## Step 3: Add Production URLs
-1. **Site URL**: Paste your Vercel URL (e.g., `https://connect-raitu.vercel.app`)
+1. **Site URL**: Paste your Vercel URL: `https://connect-raitu.vercel.app`
 2. **Redirect URLs**:
    - Click "Add URL"
    - Add: `https://connect-raitu.vercel.app/**` (The `/**` is important!)

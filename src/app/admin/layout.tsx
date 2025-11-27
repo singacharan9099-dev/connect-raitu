@@ -15,7 +15,7 @@ export default function AdminLayout({
     const navItems = [
         { icon: LayoutDashboard, label: "Overview", href: "/admin" },
         { icon: Users, label: "Users", href: "/admin/users" },
-        { icon: ShoppingBag, label: "Marketplace", href: "/admin/marketplace" },
+        { icon: ShoppingBag, label: "Marketplace", href: "/admin/products" },
         { icon: BarChart3, label: "Analytics", href: "/admin/analytics" },
         { icon: Settings, label: "Settings", href: "/admin/settings" },
     ];
@@ -36,8 +36,8 @@ export default function AdminLayout({
                                 key={item.href}
                                 href={item.href}
                                 className={`flex items-center rounded-md px-3 py-2 text-sm font-medium transition-colors ${isActive
-                                        ? "bg-green-600 text-white"
-                                        : "text-neutral-400 hover:bg-neutral-800 hover:text-white"
+                                    ? "bg-green-600 text-white"
+                                    : "text-neutral-400 hover:bg-neutral-800 hover:text-white"
                                     }`}
                             >
                                 <item.icon className="mr-3 h-5 w-5" />
