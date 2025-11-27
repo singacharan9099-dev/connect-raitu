@@ -23,14 +23,11 @@ function ShopContent() {
         const fetchProducts = async () => {
             try {
                 const dbProducts = await getProducts();
-                if (dbProducts.length > 0) {
-                    setProducts(dbProducts);
-                } else {
-                    setProducts(staticProducts);
-                }
+                setProducts(dbProducts);
             } catch (error) {
                 console.error("Failed to fetch products", error);
-                setProducts(staticProducts);
+                // Only fallback on error if absolutely necessary, or just show empty
+                setProducts([]);
             } finally {
                 setLoading(false);
             }
