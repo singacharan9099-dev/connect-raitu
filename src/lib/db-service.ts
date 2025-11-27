@@ -16,15 +16,14 @@ export async function getProducts(): Promise<Product[]> {
             id: p.id.toString(),
             name: p.name,
             price: p.price,
-            mrp: p.price * 1.2, // Default MRP if missing
-            unit: p.unit,
+            mrp: p.mrp || (p.price * 1.2), // Use database MRP or calculate
             category: p.category,
             image: p.image,
-            rating: p.rating,
-            reviews: p.reviews,
+            rating: p.rating || 4.5,
+            reviews: p.reviews || 0,
             description: p.description || "No description available",
             brand: p.brand || "Generic",
-            inStock: p.in_stock
+            inStock: p.in_stock !== false // Default to true if not specified
         }));
     } catch (error) {
         console.error("Error fetching products:", error);

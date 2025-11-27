@@ -23,10 +23,23 @@ export default function Home() {
     }
   }, [isLoading, isAuthenticated, router]);
 
+  // Timeout for loading state
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      if (isLoading) {
+        console.warn("Loading timeout - forcing page render");
+      }
+    }, 5000);
+    return () => clearTimeout(timeout);
+  }, [isLoading]);
+
   if (isLoading) {
     return (
       <div className="flex h-screen items-center justify-center bg-neutral-100">
-        <div className="h-8 w-8 animate-spin rounded-full border-4 border-green-600 border-t-transparent"></div>
+        <div className="text-center">
+          <div className="h-8 w-8 animate-spin rounded-full border-4 border-green-600 border-t-transparent mx-auto"></div>
+          <p className="mt-4 text-neutral-600">Loading Connect Raitu...</p>
+        </div>
       </div>
     );
   }
