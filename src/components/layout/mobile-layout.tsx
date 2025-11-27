@@ -23,9 +23,11 @@ export function MobileLayout({
 }: MobileLayoutProps) {
     const pathname = usePathname();
 
-    // Hide bottom nav on onboarding and login screens
+    // Hide bottom nav on onboarding, login, and admin screens
     const isAuthScreen =
-        pathname.includes("/onboarding") || pathname.includes("/login");
+        pathname.includes("/onboarding") ||
+        pathname.includes("/login") ||
+        pathname.includes("/admin");
     const shouldShowNav = showBottomNav && !isAuthScreen;
 
     return (
