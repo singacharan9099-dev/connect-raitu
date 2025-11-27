@@ -63,6 +63,7 @@ export default function ProductsAdminPage() {
                 image: formData.image || "https://images.unsplash.com/photo-1592841200221-a6898f307baa?auto=format&fit=crop&q=80&w=400",
                 description: formData.description,
                 in_stock: formData.inStock,
+                unit: "Pack", // Default unit
                 rating: 4.5,
                 reviews: 100,
             };
