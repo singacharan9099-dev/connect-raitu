@@ -34,25 +34,50 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         const { data: { subscription } } = supabase.auth.onAuthStateChange(async (event, session) => {
             if (session?.user) {
                 // Fetch profile or default
-                const { data: profile } = await supabase
-                    .from('profiles')
-                    .select('*')
-                    .eq('id', session.user.id)
-                    .single();
+                try {
+                    const { data: profile } = await supabase
+                        .from('profiles')
+                        .select('*')
+                        .eq('id', session.user.id)
+                        .single();
 
-                setUser({
-                    id: session.user.id,
-                    name: profile?.full_name || "Farmer",
-                    phone: session.user.phone || "",
-                    role: profile?.role || "FARMER",
-                });
+                    setUser({
+                        id: session.user.id,
+                        name: profile?.full_name || "Farmer",
+                        phone: session.user.phone || "",
+                        role: profile?.role || "FARMER",
+                    });
+                } catch (e) {
+                    console.error("Profile fetch error", e);
+                    // Fallback user if profile fetch fails
+                    setUser({
+                        id: session.user.id,
+                        name: "Farmer",
+                        phone: session.user.phone || "",
+                        role: "FARMER",
+                    });
+                }
             } else {
                 setUser(null);
             }
             setIsLoading(false);
         });
 
-        return () => subscription.unsubscribe();
+        // Safety timeout: If Supabase doesn't respond in 5s, stop loading
+        const safetyTimeout = setTimeout(() => {
+            setIsLoading((prev) => {
+                if (prev) {
+                    console.warn("Auth timeout - forcing load");
+                    return false;
+                }
+                return prev;
+            });
+        }, 5000);
+
+        return () => {
+            subscription.unsubscribe();
+            clearTimeout(safetyTimeout);
+        };
     }, []);
 
     const loginWithGoogle = async () => {
